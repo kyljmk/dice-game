@@ -14,19 +14,22 @@
 
             for (int i = 0; i < 10; i++)
             {
+                Console.WriteLine($"GAME {i + 1}");
+                Thread.Sleep(500);
+
                 Console.WriteLine("Press Enter to roll the dice..");
                 Console.WriteLine();
 
                 Console.ReadKey();
 
                 playerRandom = random.Next(0, 7);
-                Console.WriteLine($"You have rolled a {playerRandom}");
+                Console.WriteLine($"You have rolled a {playerRandom}!");
 
                 Console.WriteLine(". . . . .");
                 Thread.Sleep(1000);
 
                 computerRandom = random.Next(0, 7);
-                Console.WriteLine($"The computer rolled a {computerRandom}");
+                Console.WriteLine($"The computer rolled a {computerRandom}!");
                 Console.WriteLine();
                 
                 Thread.Sleep(1000);
@@ -47,6 +50,23 @@
 
                 Console.WriteLine();
                 Thread.Sleep(1000);
+            }
+
+            Console.WriteLine($"You won {playerWinCount} games, and the computer won {computerWinCount} games.");
+            Console.WriteLine();
+            Thread.Sleep(1000);
+
+            if (playerWinCount > computerWinCount)
+            {
+                Console.WriteLine("YOU WIN!!");
+            }
+            else if (playerWinCount == computerWinCount)
+            {
+                Console.WriteLine("Well that's a draw.");
+            }
+            else 
+            {
+                Console.WriteLine("Better luck next time..");
             }
         }
     }

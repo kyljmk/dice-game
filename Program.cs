@@ -1,4 +1,5 @@
-﻿namespace DiceGame
+﻿
+namespace DiceGame
 {
     class Program
     {
@@ -14,25 +15,16 @@
 
             for (int i = 0; i < 10; i++)
             {
-                Console.WriteLine($"GAME {i + 1}");
-                Thread.Sleep(500);
-
-                Console.WriteLine("Press Enter to roll the dice..");
-                Console.WriteLine();
-
-                Console.ReadKey();
+                Messages.Opening(i);
 
                 playerRandom = random.Next(0, 7);
-                Console.WriteLine($"You have rolled a {playerRandom}!");
-
-                Console.WriteLine(". . . . .");
-                Thread.Sleep(1000);
+                
+                Messages.RollResult(playerRandom, "You");
 
                 computerRandom = random.Next(0, 7);
-                Console.WriteLine($"The computer rolled a {computerRandom}!");
-                Console.WriteLine();
                 
-                Thread.Sleep(1000);
+                Messages.RollResult(computerRandom, "The computer");
+
                 if (playerRandom > computerRandom)
                 {
                     Console.WriteLine("You won this one!");
@@ -52,9 +44,7 @@
                 Thread.Sleep(1000);
             }
 
-            Console.WriteLine($"You won {playerWinCount} games, and the computer won {computerWinCount} games.");
-            Console.WriteLine();
-            Thread.Sleep(1000);
+            Decision.RollResultMessage(playerWinCount, computerWinCount);
 
             if (playerWinCount > computerWinCount)
             {
